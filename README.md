@@ -1,9 +1,2 @@
 
-This repo presents my approach for the solution of the classical and most famous Titanic Dataset. This project marked the beginning of my Data science Journey and helped in Learning a lot.
-
-Anyone reading this would learn the following:
-
--EDA
--Feature Generation
--Modeling of Tabular Data
--Hyper Parameter Tuning
+In this project I've applied Exploratory Data Analysis techniques to clean our dataset, and handle the missing values; I Trained and tested the dataset using Logistic Regression thereafter. The dataset used in this project is downloaded from Kaggle: https://www.kaggle.com/competitions/titanic/data.
