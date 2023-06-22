@@ -1,0 +1,46 @@
+*In this project I've applied Exploratory Data Analysis techniques to clean our dataset, handle the missing values and train the dataset thereafter.
+
+*The dataset used in this project is downloaded from Kaggle: https://www.kaggle.com/competitions/titanic/data
+
+*The first thing I did with the dataset was to check for any null values present in the dataset, to this I found that there were 177 missing values in the 'Age' column and 687 missing values in 'Cabin' column out of 892 total entries.
+
+*Using seaborn, I plotted a heatmap to give me a visual representation of how much data is missing from our dataset. On plotting it I found that around 20% of data was missing from the 'Age' column and 80% of the data was missing from the 'Cabin' column.
+
+*Here, we can note that since the missing values in the 'Age' column can be handled easily we'll use some form of imputation to handle it later on.
+
+#Visualising the dependent variable('Survived') with the other independent variables:
+
+    1.Using countplot, we can clearly see that out of 892 people only 343 people survived.
+    2.Using countplot, we can clearly see that out of the 343 people who survived, around 200 of them were females.
+    3.Using countplot, we can clearly see that out of 549 people who couldn't survive, around 375 of them belonged to the Passenger Class-3.
+    
+#Visualising the rest of the columns in the dataset:
+
+    1.Using distplot, we can clearly see that the average age of people who were onboard belonged to the age group of 18-35.
+    2.Using countplot, we can clearly see that around 600 people were travelling without any siblings or a spouse and around 200 people were travelling with either a sibling or a spouse.
+    
+#Data Cleaning:
+
+*Previously, we saw that the column 'Age' was missing around 20% of its data which could be handled easily. Here we'll be using the average value of the age with respect to the class of tickets bought to impute the data.
+
+*Using a boxplot we found that that the wealthier people, the people who bought Passenger Class-1 tickets were older than most of the people(27-49) with an average age of 37. The people who bought Passenger Class-2 tickets belonged to the age group of 24-35 with an average age of 28 and the people who bought the tickets for Passenger Class-3 belonged to the age group of 18-32, with an average age of 24.
+
+*I used this information to create a function that fills in the null values based on the Passenger Class to which the people belonged to.
+
+*To cross-check, I created a new heatmap and found out that the function worked properly and successfully filled in all the missing values.
+
+*Now, for the column 'Cabin', we won't be handling this much of the misssing data and hence, we'll be dropping the column for now.
+
+*Converting Categorical variables into Dummy variables:
+
+*We can see that the columns 'Name','Sex','Ticket' and 'Embarked' are the only categorical variables in our dataset.
+
+*The column 'Embarked' has 3 values 'S','C' and 'Q'and the column 'Sex' has 2 values 'male' and 'female' So, we'll drop the first attribute of these columns in order to avoid the dummy variable trap.
+
+*We, converted both the 'Embarked' and 'Sex' columns into dummy variables stored in new columns 'embarked' and 'sex' and dropped the former ones.
+
+#Training and Testing the model:
+
+*Now, once we're done with the cleaning of data. I used Logistic Regression model to the dataset with a split of 75% as training data and 25% as testing data.
+
+*This model gave me an accuracy of 78.02%
